@@ -8,14 +8,32 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var name = ""
+    let priate = ["Luffy","ZORO","God Usopp"]
+    
+    @State private var yonkons = "Luffy"
     var body: some View {
-        Form{
-            TextField("gib mir dein name", text: $name)
-            Text("Hello Pirate \(name)")
+        NavigationStack{
+            Form{
+//                //            TextField("gib mir dein name", text: $name)
+//                //            Text("Hello Pirate \(name)")
+//    //            ForEach(0..<1000) {number in
+//    //                Text("Row \(number)")
+//                ForEach(0..<1000) {
+//                    Text("Row \($0)")
+                Picker("Select Your favorite Pirate", selection: $yonkons){
+                    ForEach(priate, id: \.self){
+                        Text($0)
+                    }
+                }
+                    
+                }
+            }
+        .navigationTitle("chosse your team")
+            
         }
+
     }
-}
+
 
 #Preview {
     ContentView()
