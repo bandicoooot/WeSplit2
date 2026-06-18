@@ -24,6 +24,14 @@ struct ContentView: View {
         
         return anteil
     }
+    var totalPreis: Double{
+        let TippWählenINS = Double(Tipppercentage)
+
+        let tippKalkulationINS = checkAmount / 100 * TippWählenINS
+        let totalINS = checkAmount + tippKalkulationINS
+        
+        return totalINS
+    }
     var body: some View {
         NavigationStack{
             Form{
@@ -31,7 +39,7 @@ struct ContentView: View {
                     TextField("Amount", value: $checkAmount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
                         .keyboardType(.decimalPad)
                         .focused($amountIsFocused)
-                    Picker("number of pepole", selection: $NumberOfVolsk) {
+                    Picker("Number of pepole", selection: $NumberOfVolsk) {
                         ForEach(2..<100) {
                             Text("\($0) pepole")
                         }
@@ -40,14 +48,19 @@ struct ContentView: View {
                 }
                 Section("wie viel würdest du Tippen?"){
                     Picker("Tipp percentages", selection: $Tipppercentage){
-                        ForEach(Tipppercentages, id: \.self) {
-                            Text($0, format: .percent)
+                        ForEach(0..<101){
+                            Text("\($0) %")
                             
                         }
+//                        ForEach(Tipppercentages, id: \.self) {
+//                            Text($0, format: .percent)
+//                        }
                     }
-                    .pickerStyle(.segmented)
                 }
-                Section{
+                Section("Insgesamt: Ganze preis + Tipp"){
+                    Text(totalPreis, format: .currency(code: Locale.current.currency? .identifier ?? "USD"))
+                }
+                Section("Amount per person"){
                     Text(totalPerPerson, format: .currency(code: Locale.current.currency? .identifier ?? "USD"))
                 }
             }
