@@ -10,4 +10,4 @@ A simple SwiftUI app for splitting bills and calculating tips.
 
 ## Screenshots
 
-<img width="509" height="1006" alt="Screenshot 2026-06-16 at 12 42 59 AM" src="https://github.com/user-attachments/assets/e451cef7-eb26-4ae2-946d-6442a6f5f89a" />
+<img width="509" height="1006" alt="Screenshot 2026-06-18 at 3 49 01 PM" src="https://github.com/user-attachments/assets/1daec6d9-83ca-4fc4-ae4c-dc7f6097912a" />
